@@ -4,9 +4,10 @@
   "description": "BullMQ Example for Typescript",
   "license": "MIT",
   "bin": "src/index.ts",
+  "main": "dist/index.js",
   "scripts": {
     "build": "tsc",
-    "start": "node './dist/index.js'",
+    "start": "node dist/index.js",
     "dev": "tsc-watch --onSuccess \"node ./dist/index.js\" | pino-pretty",
     "test": "ts-mocha ./tests/**/*.test.ts"
   },
@@ -25,6 +26,7 @@
   },
   "devDependencies": {
     "@types/node": "^17.0.41",
+    "pino-pretty": "^8.1.0",
     "tsc-watch": "^5.0.3",
     "typescript": "^4.7.3"
   }
