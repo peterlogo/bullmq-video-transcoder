@@ -7,11 +7,14 @@ import splitterProcessor from "./workers/splitter";
 import transcoderProcessor from "./workers/transcoder";
 import concatProcessor from "./workers/concat";
 import { createWorker } from "./workers/worker.factory";
+import { addJobs } from "./producer";
 
 const connection = {
   host: "localhost",
   port: 6379,
 };
+
+addJobs().catch((err) => console.error(err));
 
 const { worker: splitterWorker, scheduler: splitterScheduler } = createWorker(
   splitterQueueName,

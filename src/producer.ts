@@ -10,7 +10,7 @@ const connection = {
 
 const splitterQueue = new Queue<SplitterJob>(splitterQueueName, { connection });
 
-async function addJobs() {
+export async function addJobs() {
   console.log("Adding jobs...");
   await splitterQueue.add("split", {
     videoFile: path.join(__dirname, "../assets/gws.mp4"),
@@ -18,5 +18,3 @@ async function addJobs() {
   console.log("Done");
   await splitterQueue.close();
 }
-
-addJobs();
